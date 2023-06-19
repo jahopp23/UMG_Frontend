@@ -1,0 +1,41 @@
+{% style %}
+  #contact-section .card{
+    width:100%;
+    max-width:100%;
+  }
+{% endstyle %}
+{% form 'customer' %}
+<div id="contact-section" class="container-fluid">
+<div class="card" style="width:100%;">
+  <div class="row g-0">
+    <div class="col-6">
+      <img src="https://cdn.shopify.com/s/files/1/0778/3858/2051/files/The_Way_I_am_Croop_-_Liv_1024x1024_7ef56375-bcff-40f9-87bc-948b4dd5d872.png?v=1687054715" class="img-fluid rounded-start" alt="The_Way_I_Am_Croop">
+    </div>
+    <div class="col-6">
+      <div class="card-body">
+        <h1 class="card-title">BE THE FIRST TO KNOW</h1>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+
+
+
+
+  
+  <div class="email">
+    <label for="email">Email</label>
+    <input type="email" name="contact[email]" />
+  </div>
+  <div class="zipcode">
+    <label for="zipcode">Zipcode</label>
+    <input type="number" name="contact[body]" />
+  </div>
+
+  <div class="submit">
+    <input type="submit" value="Sign up" />
+  </div>
+{% endform %}

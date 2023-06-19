@@ -1,0 +1,353 @@
+{% style %}
+div:empty {
+  display:block;
+}
+@keyframes pulse {
+0% {
+  transform: scale(1.0);
+}
+50% {
+  transform: scale(1.2);
+}
+}
+
+
+.lookbook__product img {
+  width: 180px;
+  margin-bottom: 8px;
+  max-width: none;
+  border-radius: 3px;
+}
+.lookbook__product--title {
+  text-decoration: none;
+  display: block;
+  margin-bottom: 4px !important;
+  color: #121317;
+}
+.lookbook__product {
+  display: flex;
+  flex-direction:row;
+  padding: 16px;
+  background: #ffffff;
+  font-size: 16px;
+}
+@media only screen and (max-width: 749px) {
+.lookbook__product .button {
+    min-width: 5px !important;
+    min-height: 5px !important;
+    padding: 0 0.5rem !important;
+
+}
+.lookbook__product .button .price {
+  font-size: 0.8rem !important;
+}
+.lookbook__product img {
+  margin-bottom: 8px;
+  max-width: none;
+  width:400px;
+  border-radius: 3px;
+}
+.lookbook__product--title {
+  text-decoration: none;
+  display: block;
+  margin-bottom: 4px !important;
+  color: #121317;
+}
+.lookbook__product {
+  display: block;
+  width: 100px;
+  padding: 10px;
+  background: #ffffff;
+  font-size: 11px;
+}
+
+}  
+#lb--{{section.id}} {
+  position: relative;
+  height:49vw;
+  
+}
+
+
+#title-content-shoppable .shoppable_title a:hover{
+  text-decoration:underline !important;
+  text-decoration-color: red !important;
+  text-decoration-thickness:8px;
+  
+}
+
+.shoppable_title a{
+  text-decoration:none;
+  
+}
+
+.btn-dark{
+  border: 1px solid red;
+  border-radius:0px;
+  font-size:2.00rem;
+  font-weight:500;
+  width:150px;
+  padding-left:1px;
+  padding-right:1px;
+  letter-spacing: 2px;
+}
+.btn-dark:hover{
+  background-color: red !important;
+  border: 1px solid red;
+}
+
+.shoppable_image_banner{
+  position:relative;
+  top:-3.00rem;
+}
+
+.card{
+  max-width:650px;
+  text-align:left;
+  border:none;
+
+  
+}
+
+.card-text{
+  font-size:1.25rem;
+  font-weight:500;
+  padding-top:1.00rem;
+  padding-bottom:2.00rem;
+}
+
+@media only screen and (min-width:1600px){
+  .click-area{
+    padding:3.00rem;
+  }
+}
+
+{% endstyle %}
+   {% if section.settings.title-l != blank %} 
+<div>
+        <h2 class="title {{ section.settings.heading_size }}">{{ section.settings.title-l | escape }}</h2>           
+</div>  
+{% endif %}    
+<div id="lb--{{section.id}}"">
+   {% for block in section.blocks %}
+   {% assign LeftOff = block.settings.moveLeft | minus: 40  %}
+   {% assign LeftOffMobile = block.settings.moveLeft | minus: 70 %}
+   {% assign LeftOffMobile2 = block.settings.moveLeft | minus: 30 %}
+  {% assign LeftOffLarge = block.settings.moveLeft | minus:15 %}
+   {% assign TopOff = block.settings.moveTop | minus: 40  %}
+   {% style %}
+      #tooltip--{{block.id}} {
+      display: inline-block;               
+      }
+      #dot--{{block.id}} {
+      left: {{ block.settings.moveLeft }}%;
+      top: {{ block.settings.moveTop }}%;
+      position: absolute;
+      width: 3.00rem;
+      height: 3.00rem;
+      border-radius: 100%;
+      background: {{ block.settings.pin-color }};
+      -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 1px 10px rgba(0, 0, 0, 0.25);
+      z-index: 2;
+      animation: 2s pulse ease-in-out infinite;
+      cursor: pointer;
+      border: 6px solid #5f0503;
+      }
+  
+
+      #dot--{{block.id}}:hover{
+        background: white;
+      }
+      #tooltip--{{block.id}} .tooltiptext {
+      visibility: hidden;
+      text-align: center;
+      /* Position the tooltip */
+      position: absolute;
+      z-index: 2;
+      }
+      #tooltip--{{block.id}}:active .tooltiptext {
+      visibility: visible;
+      }
+
+     #tooltip--{{block.id}}:target .tooltiptext{
+       visibility:visible;
+     }
+
+     
+
+       #tooltip--{{block.id}}:hover .tooltiptext {
+      visibility: visible;
+      }
+      #dt--{{block.id}} {
+      {% if block.settings.moveLeft < 70 %}
+      left: {{ block.settings.moveLeft }}% !important;
+      {% else %}
+      left: {{ LeftOff }}%;
+      {% endif %}
+      {% if block.settings.moveTop < 60 %}
+      top: {{ block.settings.moveTop }}%;
+      {% else %}
+      top: {{ TopOff }}%;
+      {% endif %}
+      position: absolute;
+      z-index: 1;
+      margin-top : 1.5%;
+      }
+
+     .click-area{
+       width:100%;
+       height:auto;
+       background:transparent;
+       padding:1.00rem;
+       
+     }
+
+     .click-area:hover ~ #dot--{{block.id}}{
+       background: white;
+       
+     }
+     .general-stock{
+        color:#2B2B2B;
+        padding-top:0.00rem;
+        padding-bottom:0.00rem;
+        height:auto;
+     }
+
+     .general-stock:hover{
+       color:white;
+       cursor:pointer;
+     
+     }
+
+     .header__icon--search{
+       display:none;
+     }
+
+    .card-body{
+         padding:2.00rem;    
+     
+    }
+
+     #title-content-shoppable{
+       position:absolute;
+       bottom:30px;
+       padding-right:1.00rem;
+     }
+
+     .shoppable-image-column{
+       background-color:#454545;
+     }
+
+      #title-content-shoppable a:hover{
+        text-decoraton:underline;
+        text-decoration-color: red;
+      }
+
+     @media only screen and (max-width: 1024px){
+       .general-stock{
+         height:50px;
+       }
+       #lb--{{section.id}} {
+        position: relative;
+        height:47vw;
+        
+        }
+
+       #title-content-shoppable{
+         position:unset;
+         bottom:unset;
+         padding-right:unset;
+       }
+
+      
+
+       .btn-dark{
+         width:100%;
+       }
+       .card{
+         flex-direction:column;
+         display:flex;
+       }
+       .shoppable-row{
+         display:flex;
+         flex-direction:column;
+       }
+        #dt--{{block.id}} {
+        {% if block.settings.moveLeft < 70 %}
+        left: {{ LeftOffMobile2 }}% !important;
+      
+        {% else %}
+        left: {{ LeftOffMobile }}%;
+       
+        {% endif %}
+        {% if block.settings.moveTop < 60 %}
+        top: {{ block.settings.moveTop }}%;
+        {% else %}
+        top: {{ TopOff }}%;
+        {% endif %}
+        position: absolute;
+        z-index: 2;
+        margin-top:4%;
+      }
+       .lookbook__product img {
+
+          margin-bottom: 8px;
+          max-width: none;
+          width:300px;
+          border-radius: 3px;
+        }
+       #dot--{{block.id}}{
+         width:2.50rem;
+         height:2.50rem;
+         border: 4px solid #5f0503;
+       }
+     }
+   {% endstyle %}
+   <div id="tooltip--{{block.id}}">
+      <div id="dot--{{block.id}}"></div>
+      <span class="tooltiptext" id="dt--{{block.id}}">
+         {% assign product = all_products[block.settings.product] %}
+
+        <div class="container click-area">
+         <div href="{{product.url}}" >
+          <div class="card bg-black text-white mb-3">
+            <div class="row g-0 shoppable-row">
+              <div class="col shoppable-image-column">
+                <a href="{{ product.url }}">
+                <img src="{{ product.featured_image.src | img_url: '' }}" class="img-fluid rounded-start" alt="Product Featured Image">
+                </a>
+              </div>
+              <div class="col">
+                <div class="card-body">
+                 <div class="card-title"><div class="col general-stock"><h2>General Stock</h2></div></div>
+                  <div id="title-content-shoppable" class="card-title">
+                      <div class="p-6"><h2 class="shoppable_title"><a href="{{ product.url }}">{{ product.title | upcase }}</a></h2></div>
+                      <p class="card-text">{{ product.description }}</p>
+                       <button type="button" class="btn btn-dark bg-transparent shoppable_button"><a href="{{ product.url }}">Shop Now</a></button>
+                  </div>
+
+                 
+                 
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+         </div>
+        </div>
+      </span>
+   </div>
+   {% endfor %}
+  {% if section.settings.image-l != blank %}
+   <img 
+     
+      style="height:auto;width:100%;position:relative;top:-3.00rem;z-index:1;"  
+      src="{{ section.settings.image-l | img_url: '' }}"
+      alt="{{ section.settings.image-l.alt | escape }}">
+          {% else %}
+            <p>
+      {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+            </p>
+          {% endif %}  
+</div>

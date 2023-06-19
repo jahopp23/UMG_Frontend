@@ -1,0 +1,94 @@
+{% style %}
+.footer-social li{
+    list-style-type:none;
+    display:inline;
+    padding-left:2.00rem;
+}
+
+.footer-social {
+    background: #090b0c;
+    height:75px;
+}
+.copyright{
+  color: #2B2B2B;
+  float:right;
+  padding-right:3.00rem;
+  font-size:1.00rem;
+  font-weight:500;
+}
+
+
+.icon {
+  display: inline-block;
+  width: 2.00rem;
+  height: 2.00rem;
+  background-size: cover;
+}
+.icon-facebook {
+  background-image: url(https://cdn.shopify.com/s/files/1/0778/3858/2051/files/facebook_5b6bb491-76ba-45df-846a-2e8487aa50e9.svg?v=1687115363);
+  filter: invert(12%) sepia(1%) saturate(0%) hue-rotate(173deg) brightness(93%) contrast(86%);
+}
+.icon-twitter{
+  background-image: url(https://cdn.shopify.com/s/files/1/0778/3858/2051/files/twitter_101da823-5e63-499e-9b28-8f224c160836.svg?v=1687115818);
+  filter: invert(12%) sepia(1%) saturate(0%) hue-rotate(173deg) brightness(93%) contrast(86%);
+}
+.icon-youtube{
+  background-image: url(https://cdn.shopify.com/s/files/1/0778/3858/2051/files/youtube_96435be5-541d-4123-91d2-694a12a91c69.svg?v=1687115698);
+  filter: invert(12%) sepia(1%) saturate(0%) hue-rotate(173deg) brightness(93%) contrast(86%);
+}
+.icon-instagram{
+  background-image:url(https://cdn.shopify.com/s/files/1/0778/3858/2051/files/instagram_f2cb0792-f44e-4348-b021-d7562b6deb79.svg?v=1687115547);
+  filter: invert(12%) sepia(1%) saturate(0%) hue-rotate(173deg) brightness(93%) contrast(86%);
+}
+.icon-apple{
+  background-image:url(https://cdn.shopify.com/s/files/1/0778/3858/2051/files/apple_bab0e39a-ecde-4f15-b1a6-b69720392402.svg?v=1687115432);
+  filter: invert(12%) sepia(1%) saturate(0%) hue-rotate(173deg) brightness(93%) contrast(86%);
+}
+.icon-spotify{
+  background-image:url(https://cdn.shopify.com/s/files/1/0778/3858/2051/files/spotify.svg?v=1687113690);
+  filter: invert(12%) sepia(1%) saturate(0%) hue-rotate(173deg) brightness(93%) contrast(86%);
+}
+.icon:hover,
+.icon:focus {
+  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+}
+
+@media only screen and (max-width:1024px){
+  .middle-column{
+    display:none;
+  }
+
+  .footer-social{
+    display:flex;
+    flex-direction:column;
+    padding:1.00rem;
+  }
+
+  .col{
+    width:100%;
+    display:flex;
+    justify-content:center;
+  }
+    
+}
+
+
+{% endstyle %}
+
+<div class="row footer-social align-items-center">
+    <div class="col">
+      <li><a href="https://www.facebook.com/eminem/" target="_blank"><span class="icon icon-facebook"></span></a></li>
+      <li><a href="https://twitter.com/Eminem" target="_blank"><span class="icon icon-twitter"></span></a></li>
+      <li><a href="https://www.youtube.com/user/EminemMusic/featured" target="_blank"><span class="icon icon-youtube"></span></a></li>
+      <li><a href="https://www.instagram.com/eminem/" target="_blank"><span class="icon icon-instagram"></span></a></li>
+      <li><a href="https://music.apple.com/us/artist/eminem/111051" target="_blank"><span class="icon icon-apple"></span></a></li>
+      <li><a href="https://open.spotify.com/artist/7dGJo4pcD2V6oG8kP0tJRR?si=uqz0CjU5RsCsu8DmOPkp9A&nd=1" target="_blank"><span class="icon icon-spotify"></span></a></li>
+    
+    </div>
+    <div class="col middle-column">
+      
+    </div>
+    <div class="col">
+      <p class="copyright">Copyright Shady Records</p>
+    </div>
+</div>

@@ -1,0 +1,288 @@
+{% style %}
+  #contact-section .card{
+    width:100%;
+    max-width:100%;
+    background-color:transparent;
+    border:none;
+   
+
+  }
+
+  #contact-section .card .card-title{
+    height:400px;
+    font-size:9.00rem;
+    color:white;
+    display:flex;
+    align-items:center;
+    position:relative;
+    left:-13.00rem;
+    width:80%;
+    top:1.00rem;
+    line-height:8.00rem;
+  }
+
+  #contact-section .card-body p{
+    color: #454545 !important;
+    font-weight:lighter;
+    font-size:2.40rem;
+    position:relative;
+    left:-12.00rem;
+    top:-8.00rem;
+    letter-spacing:-1px;
+    width:80%;
+    text-shadow: 0px 0px 0.5px rgba(255,255,255,0.7);
+   
+  }
+
+  #contact-section input{
+    width:55%;
+    border: 2px solid #454545;
+    margin-bottom:2.00rem;
+    height:4.00rem;
+    background-color: transparent;
+    padding:1.00rem;
+    color:white;
+    font-size:2.00rem;
+    font-weight:bolder;
+    outline:none;
+  }
+
+  #contact-section input:focus{
+    border: none;
+    outline:2px solid red;
+  }
+
+  #contact-section input::placeholder{
+    font-size:2.00rem;
+    color:#454545;
+    font-weight:bolder;
+    text-transform:uppercase;
+  
+    
+  }
+
+  input:focus::placeholder{
+    color: white !important;
+}
+
+  
+  #contact-section{   
+    
+    
+    height:765px;
+    width:100%;
+    overflow:hidden;
+    margin:0;
+    background-color:#0d0f0e;
+    padding:0;
+    
+ 
+
+  }
+
+  #contact-section span{
+    
+    position: absolute;
+    width:100%;  
+
+  }
+
+  .blur-image{
+     position: absolute;
+    -webkit-filter: blur(4px);
+    -moz-filter: blur(14px);
+    -o-filter: blur(4px);
+    -ms-filter: blur(4px);
+    filter: blur(4px);
+    width:100%;
+    overflow:hidden;
+    margin:0;
+    background: url('{{ section.settings.subscribe_form_background_image | img_url: 'master'}}');
+    height:765px;
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:130% 100%;
+   
+  }
+
+  .left-image-subscribe{
+    padding:6.00rem;
+  }
+
+  .background{
+    background-color:#0d0f0e;
+  }
+
+  .form-control{
+    border-radius:0px;
+  }
+
+  .submit input{
+    text-align:left;
+    border:none !important;
+    width:20% !important;
+  }
+
+  .submit input:focus{
+    outline: none !important;
+  }
+
+  .submit input:hover{
+    color:red !important;
+  }
+
+  .card-body .text-muted p{
+    
+    font-size:1.00rem !important;
+    width:55% !important;
+    padding:0;
+    left:unset !important;
+    top:unset !important;
+    letter-spacing:unset !important;
+    
+  }
+
+  @media only screen and (max-width:1024px){
+    #contact-section{
+      display:flex;
+      flex-direction:column;
+      height:800px;
+    }
+
+    #contact-section .col-6{
+      width:100% !important;
+    }
+
+    #contact-section .left-image-subscribe{
+      padding:3.00rem;
+    }
+    #contact-section .blur-image{
+      background: url('https://cdn.shopify.com/s/files/1/0778/3858/2051/files/Seated_Shirt_-_Justin_1024x1024_5fd714b5-3ab3-430a-ad71-077ae3a1c08b.png?v=1687122605');
+      background-size:contain;
+      background-repeat: no-repeat;
+      background-position:100% 100%;
+      height:800px;
+    }
+    #contact-section .card .card-title{
+      font-size:4rem;
+      height:4rem;
+      width:100%;
+      line-height:6rem;
+      top:-7rem;
+      left:0rem;
+      
+    }
+
+    #contact-section .card-body p{
+      left:0rem;
+      width:100%;
+      font-size:2.00rem;
+      top:-3rem;
+    }
+
+    #contact-section input{
+      width:100%;
+    }
+
+    .card-body .text-muted p{
+      width:100% !important;
+      font-size:0.80rem;
+        
+    }
+
+    .submit input{
+      width:100% !important;
+    }
+  }
+
+  @media only screen and (min-width:1600px){
+    #contact-section{
+      height:950px;
+    }
+    .blur-image{
+      height:950px;
+    }
+  }
+{% endstyle %}
+{% form 'customer' %}
+<div id="contact-section" class="container-fluid">
+  <div class="blur-image"></div>
+ 
+
+<span>
+  <div class="card" style="width:100%;">
+  <div class="row g-0">
+    <div class="col-6 background">
+      {{ section.settings.subscribe_form_image | img_url: 'master' | img_tag: 'Subscribe Form Left Image', 'img-fluid left-image-subscribe' }}
+      
+    </div>
+    <div class="col-6">
+     
+      <div class="card-body">
+        <h1 class="card-title">{{ section.settings.subscribe_form_title | upcase }}</h1>
+        <p class="card-text">{{ section.settings.subscribe_form_text }}</p>
+          <div class="email">
+        
+            <input type="email" name="contact[email]" placeholder="Email Address" class="form-control" />
+          </div>
+          <div class="zipcode">
+           
+            <input type="number" name="contact[body]" placeholder="zipcode" class="form-control" />
+          </div>
+         <small class="text-muted"><p>By submitting this form I agree to receive news, tour dates, and special offers from Eminem. By submitting this form, you agree to the Universal Music Group Privacy Policy.</p></small>
+
+          <div class="submit">
+            <input type="submit" value="Subscribe" />
+          </div>
+      
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</span>
+  </div>
+
+
+
+
+  
+
+{% endform %}
+
+{% schema %}
+  {
+    "name": "Custom Subscribe Form",
+    "settings": [
+      {
+        "id": "subscribe_form_title",
+        "type": "text",
+        "label": "Subscribe Form Title",
+        "default": "Title"
+      },
+      {
+        "id": "subscribe_form_text",
+        "type": "richtext",
+        "label": "Add custom text to subscription form",
+        "default": "<p>Add your text here</p>"
+      },
+      {
+        "type": "image_picker",
+        "id": "subscribe_form_image",
+        "label": "Subscribe Form Left Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "subscribe_form_background_image",
+        "label": "Subscribe Form Background Image"
+      }
+    ],
+     "presets": [
+      {
+        "name": "Custom Subscribe Form",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}
